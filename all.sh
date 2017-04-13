@@ -21,7 +21,9 @@ choice=$(dialog --menu "Choose Action" \
     28 100 40 \
     \
     "docker ps -a" \
-    "docker process list                                                                                         " \
+        "docker process list                                                                                         " \
+    "docker stats \$(docker-compose -f ldev-docker-compose.yml config --services)" \
+        "docker stats" \
     "#=== server ===#"          "#=== server ===" \
     "docker-compose -f ldev-docker-compose.yml stop && docker-compose -f ldev-docker-compose.yml rm -f" \
         "server: stop                                              " \
