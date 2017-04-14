@@ -1,0 +1,12 @@
+version: '2'
+services:
+  mariadb10:
+    container_name: mariadb10
+    hostname: mariadb10
+    image: mariadb:10.1.22
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
+    networks:
+      - default
