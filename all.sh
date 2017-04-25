@@ -15,7 +15,7 @@ fi
 if [ "$GOLANG" == 1 ]
 then
 
-golangImage="minixxie/golang:1.7"
+golangImage="minixxie/golang:1.8"
 dockerRunGolang="docker run -it --rm --net ldev-backend -w /go/src/app -v \"\$PWD\":/go/src/app $golangImage "
 choice=$(dialog --menu "Choose Action" \
     28 100 40 \
