@@ -24,6 +24,8 @@ choice=$(dialog --menu "Choose Action" \
         "docker process list                                                                                         " \
     "docker stats \$(docker-compose -f ldev-docker-compose.yml config --services)" \
         "docker stats" \
+    "docker rmi \$(docker images | grep '<none>' | awk \"{print \$3}\")" \
+        "rm unused images" \
     "#=== server ===#"          "#=== server ===" \
     "docker-compose -f ldev-docker-compose.yml stop && docker-compose -f ldev-docker-compose.yml rm -f" \
         "server: stop                                              " \
