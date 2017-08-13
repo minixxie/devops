@@ -33,6 +33,8 @@ choice=$(dialog --menu "Choose Action" \
         "server: start                                              " \
     "docker-compose -f ldev-docker-compose.yml stop && docker-compose -f ldev-docker-compose.yml rm -f  &&  docker-compose -f ldev-docker-compose.yml build && docker-compose -f ldev-docker-compose.yml up -d && docker-compose -f ldev-docker-compose.yml logs -f" \
         "server: stop & start                                              " \
+    "docker-compose -f ldev-docker-compose.yml logs -f" \
+        "server: logs                                              " \
     "#=== GOLANG ===#"          "#=== GOLANG ===" \
     "$dockerRunGolang bash -c \"govendor init\"" \
         "govendor init" \
