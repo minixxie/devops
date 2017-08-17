@@ -24,6 +24,8 @@ choice=$(dialog --menu "Choose Action" \
         "docker process list                                                                                         " \
     "docker stats \$(docker-compose -f ldev-docker-compose.yml config --services)" \
         "docker stats" \
+    "docker ps -a | grep Exited | grep -v 'Exited (0)' | awk '{print \$1}' | xargs docker rm -f" \
+        "rm failed containers" \
     "docker rmi \$(docker images | grep '<none>' | awk \"{print \$3}\")" \
         "rm unused images" \
     "#=== server ===#"          "#=== server ===" \
