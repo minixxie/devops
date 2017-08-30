@@ -1,6 +1,9 @@
 #!/bin/bash
 
 scriptPath=$(cd $(dirname $0); pwd)
+
+GOLANG=1 #default
+
 ls "$scriptPath"/*.go > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
@@ -56,7 +59,13 @@ choice=$(dialog --menu "Choose Action" \
     28 100 40 \
     \
     "docker ps -a" \
-    "docker process list                                                                                         " \
+        "docker process list                                                                                         " \
+    "docker stats \$(docker-compose -f ldev-docker-compose.yml config --services)" \
+        "docker stats" \
+    "docker ps -a | grep Exited | grep -v 'Exited (0)' | awk '{print \$1}' | xargs docker rm -f" \
+        "rm failed containers" \
+    "docker rmi \$(docker images | grep '<none>' | awk \"{print \$3}\")" \
+        "rm unused images" \
     "#=== server ===#"          "#=== server ===" \
     "docker-compose -f ldev-docker-compose.yml stop && docker-compose -f ldev-docker-compose.yml rm -f" \
         "server: stop                                              " \
