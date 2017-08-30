@@ -40,6 +40,8 @@ choice=$(dialog --menu "Choose Action" \
         "server: stop & start                                              " \
     "docker-compose -f ldev-docker-compose.yml logs -f" \
         "server: logs                                              " \
+    "./devops/bootstrap-ldev.sh" \
+        "Bootstrap LDEV" \
     "#=== GOLANG ===#"          "#=== GOLANG ===" \
     "$dockerRunGolang bash -c \"govendor init\"" \
         "govendor init" \
@@ -73,6 +75,8 @@ choice=$(dialog --menu "Choose Action" \
         "server: start                                              " \
     "docker-compose -f ldev-docker-compose.yml stop && docker-compose -f ldev-docker-compose.yml rm -f  &&  docker-compose -f ldev-docker-compose.yml build && docker-compose -f ldev-docker-compose.yml up -d && docker-compose -f ldev-docker-compose.yml logs -f" \
         "server: stop & start                                              " \
+    "./devops/bootstrap-ldev.sh" \
+        "Bootstrap LDEV" \
     "#=== JS ===#"          "#=== JS ===" \
     "docker run --rm --net ldev-backend -w /usr/src/app -v \"\$PWD\":/usr/src/app $nodejsImage bash -c \"npm test\"" \
         "nodejs test" \

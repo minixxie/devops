@@ -3,8 +3,7 @@ services:
   tidb:
     container_name: tidb
     hostname: tidb
-    image: pingcap/tidb:hotfix170413
+    image: pingcap/tidb:rc4
     ports:
       - "4000:4000"
-    networks:
-      - default
+    network_mode: bridge
