@@ -1,9 +1,0 @@
-version: '2'
-services:
-  tidb:
-    container_name: tidb
-    hostname: tidb
-    image: pingcap/tidb:rc4
-    ports:
-      - "4000:4000"
-    network_mode: bridge
