@@ -16,6 +16,13 @@ This is a centralized repo to link to other repos:
 Best practice suggestion: https://github.com/minixxie/infra-as-code
 * to make use of code to specify your infrastructure, in Terraform or pulumi
 
+## Local Development Environment
+There are a few ways to setup local environment
+* just install everything needed
+* setup docker on local: https://github.com/minixxie/local-docker
+* setup k8s on local:
+  * https://github.com/minixxie/k8s-services, https://github.com/minixxie/apps
+
 ## Java microservice stack
 * https://github.com/minixxie/java-springboot
 * Java is good for Backend
